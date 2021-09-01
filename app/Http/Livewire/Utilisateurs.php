@@ -11,11 +11,8 @@ use Illuminate\Validation\Rule;
 class Utilisateurs extends Component
 {
     use WithPagination;
-    protected $paginationTheme = "bootstrap";
-   // public $isBtnAddClicked = false;
-
+    protected $paginationTheme = "bootstrap"; 
     public $currentPage = PAGELIST;
-
     public $newUser =  [];
     public $editUser = [];
 
@@ -58,8 +55,6 @@ protected $queryString = [
         return $pdf->download("users.pdf");
     }
 
-
-
     public function rules()
     {
         if( $this->currentPage == PAGEEDITFORM)
@@ -67,9 +62,7 @@ protected $queryString = [
             return [
                 'editUser.name' =>'required',
                 'editUser.email' =>['required','email', Rule::unique("users", "email")->ignore($this->editUser["id"])],
-
                 'editUser.adresse' =>'required',
-               // 'editUser.contact' => ['required','numeric', Rule::unique("users", "email")->ignore($this->editUser["id"])],
                 'editUser.sexe' =>'required',
                 'editUser.ville' =>'required',
                 'editUser.pays' => 'required',
@@ -81,7 +74,6 @@ protected $queryString = [
             'newUser.name' =>'required',
             'newUser.email' =>'required|email|unique:users,email',
             'newUser.adresse' =>'required',
-            //'newUser.contact' =>'required|numeric|unique:users,contact',
             'newUser.sexe' =>'required',
             'newUser.ville' =>'required',
             'newUser.pays' => 'required',

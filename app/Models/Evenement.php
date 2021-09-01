@@ -36,11 +36,11 @@ class Evenement extends Model
 
 
     /** 2
-     * un événement a plusieurs images.
+     * un événement a un ou plusieurs images.
      */
     public function images()
     {
-        return $this->hasMany(Image::class);
+        return $this->hasOne(Image::class);
     }
 
 

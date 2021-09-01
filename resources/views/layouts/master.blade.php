@@ -33,7 +33,7 @@
               <img src="{{asset('images/vale.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
         </div>
         <div class="info">
-          <a href="{{ route('profil.show', Auth::user()->id) }}" class="d-block">{{ Auth::user()->name }}</a>
+          <a href="{{ route('profil.show', Auth::user()->id) }}" class="d-block"><strong> {{ Auth::user()->name }}</strong> </a>
         </div>
 
       </div>

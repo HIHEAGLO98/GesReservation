@@ -13,9 +13,10 @@
 
         <li>
             <!-- SidebarSearch Form -->
+         <!-- <form action="" method="GET">
             <div class="form-inline">
                 <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search" wire:model.debounce.500ms="searchev">
+                <input class="form-control form-control-sidebar" type="search"  name ="query" placeholder="Search" aria-label="Search" wire:model.debounce.500ms="searchev">
                 <div class="input-group-append">
                     <button class="btn btn-sidebar">
                     <i class="fas fa-search fa-fw"></i>
@@ -23,6 +24,11 @@
                 </div>
                 </div>
             </div>
+        </form>-->
+        <form class="d-flex" action="{{ route('acceuils.index') }}" method="GET">
+            <input class="form-control me-2" type="search" name="query" placeholder="Search" wire:model.debounce.500ms="query" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
        </li>
        @can("participant")
         <li class="nav-item">
@@ -31,29 +37,6 @@
             </a>
         </li>
       @endcan
-       <!-- Button trigger modal
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>-->
-
 
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">

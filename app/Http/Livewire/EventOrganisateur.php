@@ -19,20 +19,20 @@ class EventOrganisateur extends Component
     use WithFileUploads;
     protected $paginationTheme = "bootstrap";
     public $newEvenement = [];
-    public $editEvent = [];
+    public $editEvenement = [];
     public $photo;
     public $evenement;
     public $organisateur;
 
     public $currentPage = PAGELIST;
-    
+
     public string $search = '';
 
     protected $queryString = [
         'search' => ['except' => '']
-    
+
     ];
-    
+
     public function render()
     {
         return view('livewire.events.index',[
@@ -46,9 +46,9 @@ class EventOrganisateur extends Component
             ->extends("layouts.master")
             ->section("contenu");;
     }
-
+    /*
     protected $rules = [
-        
+
         'newEvenement.nom' =>'required|unique:evenements,nom',
         'newEvenement.adresse' =>'required',
         'newEvenement.description' =>'required',
@@ -60,36 +60,76 @@ class EventOrganisateur extends Component
         'newEvenement.salle_id' => 'required',
         'newEvenement.type_evenement_id' => 'required',
         'newEvenement.organisateur_id' =>'required',
-        
-    ];
 
-    //Ajouter un événement
+    ];
+    */
+    public function rules()
+    {
+        if( $this->currentPage == PAGEEDITFORM)
+        {
+            return [
+                'editEvenement.nom' =>'required',
+                'editEvenement.adresse'=>'required',
+                'editEvenement.description' =>'required|max:500',
+                'editEvenement.nombre_place'=>'required|numeric',
+                'editEvenement.datedebut' =>'required|date',
+                'editEvenement.datefin' =>'required',
+                'editEvenement.heuredebut' => 'required',
+                'editEvenement.heurefin'=>'required',
+                'editEvenement.salle_id' =>'required',
+                'editEvenement.type_evenement_id'=>'required',
+                'editEvenement.organisateur_id' =>'required',
+
+            ];
+        }
+
+        return [
+            'newEvenement.nom' =>'required|unique:evenements,nom|max:255',
+            'newEvenement.adresse' =>'required',
+            'newEvenement.description' =>'required|max:500',
+            'newEvenement.nombre_place' =>'required|numeric',
+            'newEvenement.datedebut' =>'required|date|min:now()',
+            'newEvenement.datefin' => 'required|date',
+            'newEvenement.heuredebut' => 'required',
+            'newEvenement.heurefin' => 'required',
+            'newEvenement.salle_id' => 'required',
+            'newEvenement.type_evenement_id' => 'required',
+            'newEvenement.organisateur_id' => 'required',
+
+        ];
+    }
+
+
     public function goToAddEvent()
     {
         $this->currentPage = PAGECREATEFORM;
-        
+
     }
-  
+
     public function goToEditEvent($id)
     {
-        $this->editEvent = Evenement::find($id)->toArray();
+        $this->editEvenement = Evenement::find($id)->toArray();
 
         $this->currentPage = PAGEEDITFORM;
     }
 
-  //Editer un événement
+    //Editer un événement
+    public function UpdateEvent()
+   {
+        $validationAttributes = $this->validate();
+
+        Evenement::find($this->editEvenement["id"])->update($validationAttributes["editEvenement"]);
+
+        $this->dispatchBrowserEvent("ShowSuccessMessage",
+            ["message" =>"Evénement modifié avec succès!!"]);
+    }
+    
+    //Ajouter un événement
     public function AddEvent()
     {
-       
        $validationAttributes =  $this->validate();
-       
-        
       $evenement =  Evenement::create($validationAttributes["newEvenement"]);
-       
-      
       $this->photo = $this->photo->store('photos','public');
-
-    
       $filename = $this->photo;
       $image = new Image();
 
@@ -107,8 +147,8 @@ class EventOrganisateur extends Component
     public function goToListEvent()
     {
         $this->currentPage = PAGELIST;
-        $this->editEvent = [];
-        
+        $this->editEvenement = [];
+
     }
 
     public function confirmDelete($name, $id)

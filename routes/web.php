@@ -2,6 +2,7 @@
 
 //use App\Htpp\Livewire\Utlisateurs;
 
+use App\Http\Controllers\SearchController;
 use App\Models\User;
 use App\Http\Livewire\Pay;
 use App\Http\Livewire\Admin;
@@ -195,9 +196,4 @@ Route::get('/usersPDF', [Utilisateurs::class,"generatePDF"])->middleware("auth.a
         });
 
     });
-
-
-
-
-
 

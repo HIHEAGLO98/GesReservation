@@ -19,10 +19,10 @@ class Evenements extends Component
     protected $paginationTheme = "bootstrap";
 
     public $newEvenement = [];
-    public $editEvent = [];
+    public $editEvenement = [];
     public $photo;
     public $evenement;
-   
+
 
     public $currentPage = PAGELIST;
 
@@ -54,10 +54,10 @@ class Evenements extends Component
         $evenements = Evenement::all();
         view()->share('evenements', $evenements);
        $pdf = PDF::loadView('report.pdf', $evenements);
-        return $pdf->download("evenement.pdf");
+        return $pdf->download("Listevenement.pdf");
     }
 
-
+    /*
     protected $rules = [
 
         'newEvenement.nom' =>'required|unique:evenements,nom|max:255',
@@ -72,7 +72,43 @@ class Evenements extends Component
         'newEvenement.type_evenement_id' => 'required',
         'newEvenement.organisateur_id' => 'required',
 
-    ];
+    ];*/
+    public function rules()
+    {
+        if( $this->currentPage == PAGEEDITFORM)
+        {
+            return [
+                'editEvenement.nom' =>'required',
+                'editEvenement.adresse'=>'required',
+                'editEvenement.description' =>'required|max:500',
+                'editEvenement.nombre_place'=>'required|numeric',
+                'editEvenement.datedebut' =>'required|date',
+                'editEvenement.datefin' =>'required',
+                'editEvenement.heuredebut' => 'required',
+                'editEvenement.heurefin'=>'required',
+                'editEvenement.salle_id' =>'required',
+                'editEvenement.type_evenement_id'=>'required',
+                'editEvenement.organisateur_id' =>'required',
+
+            ];
+        }
+
+        return [
+            'newEvenement.nom' =>'required|unique:evenements,nom|max:255',
+            'newEvenement.adresse' =>'required',
+            'newEvenement.description' =>'required|max:500',
+            'newEvenement.nombre_place' =>'required|numeric',
+            'newEvenement.datedebut' =>'required|date|min:now()',
+            'newEvenement.datefin' => 'required|date',
+            'newEvenement.heuredebut' => 'required',
+            'newEvenement.heurefin' => 'required',
+            'newEvenement.salle_id' => 'required',
+            'newEvenement.type_evenement_id' => 'required',
+            'newEvenement.organisateur_id' => 'required',
+
+        ];
+    }
+
 
     public function goToAddEvent()
     {
@@ -82,10 +118,20 @@ class Evenements extends Component
 
     public function goToEditEvent($id)
     {
-        $this->editEvent = Evenement::find($id)->toArray();
+        $this->editEvenement = Evenement::find($id)->toArray();
 
         $this->currentPage = PAGEEDITFORM;
     }
+     public function UpdateEvent()
+     {
+        $validationAttributes = $this->validate();
+        //dd($validationAttributes);
+
+        Evenement::find($this->editEvenement["id"])->update($validationAttributes["editEvenement"]);
+
+        $this->dispatchBrowserEvent("ShowSuccessMessage",
+        ["message" =>"Evénement modifié avec succès!!"]);
+     }
 
     public function AddEvent()
     {
@@ -104,7 +150,7 @@ class Evenements extends Component
       $image->path = $filename;
 
       $evenement->images()->save($image);
-    
+
        $this->newEvenement = [];
 
        $this->dispatchBrowserEvent("ShowSuccessMessage",
@@ -115,7 +161,7 @@ class Evenements extends Component
     public function goToListEvent()
     {
         $this->currentPage = PAGELIST;
-        $this->editEvent = [];
+        $this->editEvenement = [];
 
     }
 

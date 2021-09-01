@@ -38,7 +38,7 @@
             <td>{{$booking->evenement->nom}}</td>
             <td>{{ $booking->participant->nom }}</td>
             <td>{{$booking->evenement->organisateur->nom}}</td>
-            <td class="text-center"><span class="tag tag-success">{{date('d/m/y',strtotime($booking->created_at))}}</span></td>
+            <td class="text-center"><span class="tag tag-success">{{$booking->created_at}}</span></td>
             </tr>
             @endforeach
         </tbody>

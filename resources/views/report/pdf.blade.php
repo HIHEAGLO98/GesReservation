@@ -33,7 +33,7 @@
             <th style="width: 20%;" class="text-center">Date Fin</th>
             </tr>
         </thead>
-        <tbody>  date('d/m/Y', strtotime($evenement->datedebut))
+        <tbody>  
             @foreach($evenements as $evenement)
             <tr>
             <td>{{$evenement->nom}}</td>

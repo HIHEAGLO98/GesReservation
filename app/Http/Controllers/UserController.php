@@ -93,17 +93,7 @@ class UserController extends Controller
       
          User::find(Auth::user()->id)->update($validate);
         
-        return redirect()->route('profil.show', ['profil' => Auth::user()->id])->with('info', 'mise à jour effectuée',compact('user'));
+        return redirect()->route('profil.show', ['profil' => Auth::user()->id])->with('info', 'mise à jour effectuée avec succès',compact('user'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
-    }
 }

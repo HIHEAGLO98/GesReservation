@@ -4,7 +4,7 @@
     @endif
 
     @if ($currentPage == PAGEEDITFORM)
-        @include("livewire.evenements.edit")
+        @include("livewire.events.edit")
     @endif
 
     @if($currentPage == PAGELIST)

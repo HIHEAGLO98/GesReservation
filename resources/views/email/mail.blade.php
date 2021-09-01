@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}}">
 </head>
 <body>
-    <h3 style="text-align: center">Bonjour {{ $data['name'] }}, </h3>
+    <h3 style="text-align: center"><strong>Bonjour {{ $data['name'] }}, </strong></h3>
     <p>
         @php
             echo $data['message']

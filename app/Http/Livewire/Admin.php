@@ -15,7 +15,7 @@ class Admin extends Component
     public $booking ;
     public $tickets;
     public $evenement;
-   
+
     public function render()
     {
         $this->nombre = User::count();

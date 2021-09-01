@@ -96,7 +96,7 @@
         </div>
         <div class="input-group mb-3">
             <input type="password" for="password-confirm" name="password_confirmation" class="form-control"
-            required autocomplete="new-password" id="password-confirm" placeholder="password confirm">
+            required autocomplete="new-password" id="password-confirm" placeholder="Confirmation du password">
             <div class="input-group-append">
               <div class="input-group-text text-white">
                 <span class="fas fa-lock"></span>

@@ -32,13 +32,13 @@
             </thead>
             <tbody>
               @foreach($evenements as $evenement)
-              <tr> 
+              <tr>
                 <td>{{$evenement->nom}}</td>
                 <td>{{ $evenement->adresse }}</td>
                 <td>{{$evenement->organisateur->nom}}</td>
-                <td class="text-center"><span class="tag tag-success">{{ date('d/m/y',strtotime($evenement->created_at)) }}</span></td>
+                <td class="text-center"><span class="tag tag-success">{{$evenement->created_at->diffForHumans() }}</span></td>
                 <td class="text-center">
-                    <button class="btn btn-link" ><i class="far fa-edit" ></i> </button>
+                    <button class="btn btn-link" wire:click="goToEditEvent({{$evenement->id}})"><i class="far fa-edit" ></i> </button>
                     <button class="btn btn-link"  wire:click="confirmDelete('{{ $evenement->nom}}', {{$evenement ->id }})"><i class="far fa-trash-alt"></i></button>
                 </td>
               </tr>

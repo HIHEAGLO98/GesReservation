@@ -59,19 +59,6 @@
                 @enderror
               </div>
             </div>
-            <!--  <div class="form-group">
-                <label >Photo</label>
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input">
-                    <label class="custom-file-label">Choose file</label>
-                  </div>
-                  <div class="input-group-append">
-                    <span class="input-group-text">Upload</span>
-                  </div>
-                </div>
-              </div>
-            </div>-->
             <!-- /.card-body -->
 
             <div class="card-footer">

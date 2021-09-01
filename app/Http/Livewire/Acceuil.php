@@ -22,9 +22,9 @@ class Acceuil extends Component
 
     protected $paginationTheme = "bootstrap";
 
-    public string $searchev = '';
+    public string $query = '';
     protected $queryString = [
-        'searchev' => ['except' => '']
+        'query' => ['except' => '']
 
     ];
 
@@ -36,7 +36,7 @@ class Acceuil extends Component
         [
             "reservation"=>Reservation::all(),
             "participant" => Participant::all(),
-          "evenements" => Evenement::where('nom', 'LIKE', "%{$this->searchev}%"),
+            "evenements" => Evenement::where('nom',  'LIKE', "%{$this->query}%"),
         ],)
         ->extends("layouts.master")
         ->section("contenu");
@@ -49,7 +49,7 @@ class Acceuil extends Component
         ->send(new SendMail($data));
 
         return view('livewire.acceuils.index');
-        
+
     }
 
 
@@ -58,8 +58,8 @@ class Acceuil extends Component
         $userOnLine = Auth::user();
         $user = Participant::where('user_id', '=',$userOnLine->id)->get();
         $user = $user[0];
-       
-       Reservation::create(["evenement_id" =>$evenement, 
+
+       Reservation::create(["evenement_id" =>$evenement,
                               "participant_id"=>$user['id'],
         ]);
 
@@ -91,11 +91,13 @@ class Acceuil extends Component
                     </li>
                 </ul>',
         ];
-         
+
         $this->MailerSender($info);
         $this->dispatchBrowserEvent("ShowSuccessMessage",
         ["message" =>"Vous venez de reserver une place pour cet événement!! Consulter votre mail"]);
 
     }
+
+
 
 }

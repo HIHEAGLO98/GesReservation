@@ -26,7 +26,7 @@
             </div>
             @error('email')
             <span class="invalid-feedback" role="alert">
-                <strong>Identifiant incorrect</strong>
+                <strong>{{ $message }}</strong>
             </span>
             @enderror
         </div>
