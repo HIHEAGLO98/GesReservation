@@ -1,5 +1,5 @@
 <div class="row  p-4 pt-5">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
@@ -12,16 +12,16 @@
             <div class="card-body">
               <div class="form-group">
                 <label> Ville</label>
-                <input type="text" class="form-control @error('editVille.nom_ville') is-ivalid @enderror" wire:model="editVille.nom_ville">
+                <input type="text" required class="form-control @error('editVille.nom_ville') is-ivalid @enderror" wire:model="editVille.nom_ville">
                @error("editVille.nom_ville")
                    <span class="text-danger">{{ $message }}</span>
                @enderror
               </div>
-            
-           
+
+
               <div class="form-group">
                 <label>Pays</label>
-                <select class="form-control @error('editVille.pays_id') is-ivalid @enderror" wire:model="editVille.pays_id">
+                <select required class="form-control @error('editVille.pays_id') is-ivalid @enderror" wire:model="editVille.pays_id">
                    @foreach ($pays as $pays)
                    <option ></option>
                    <option value="{{ $pays->id }}">{{ $pays->nom_pays }}</option>
@@ -31,7 +31,7 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
               </div>
-            </div>   
+            </div>
             <!-- /.card-body -->
 
             <div class="card-footer">

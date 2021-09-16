@@ -12,7 +12,7 @@
             <div class="card-body">
               <div class="form-group">
                 <label>Nom Complet</label>
-                <input type="text" value="{{ old('name') }}" class="form-control @error('newUser.name') is-ivalid @enderror" wire:model="newUser.name">
+                <input required type="text" value="{{ old('name') }}" class="form-control @error('newUser.name') is-ivalid @enderror" wire:model="newUser.name">
                @error("newUser.name")
                    <span class="text-danger">{{ $message }}</span>
                @enderror
@@ -26,7 +26,7 @@
               </div>
               <div class="form-group">
                 <label>Sexe</label>
-                <select class="form-control @error('newUser.sexe') is-ivalid @enderror" wire:model="newUser.sexe">
+                <select required class="form-control @error('newUser.sexe') is-ivalid @enderror" wire:model="newUser.sexe">
                     <option>------------</option>
                     <option value="H">Homme</option>
                     <option value="F">Femme</option>
@@ -35,10 +35,10 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
               </div>
-              
+
               <div class="form-group">
                 <label>Adresse</label>
-                <input type="text"  value="{{ old('adresse') }}" class="form-control @error('newUser.adresse') is-ivalid @enderror" wire:model="newUser.adresse">
+                <input type="text"  required value="{{ old('adresse') }}" class="form-control @error('newUser.adresse') is-ivalid @enderror" wire:model="newUser.adresse">
                 @error("newUser.adresse")
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -46,20 +46,20 @@
             <div class="d-flex">
               <div class="form-group flex-grow-1 mr-2">
                 <label>Pays</label>
-                <input type="text" value="{{ old('pays') }}" class="form-control @error('newUser.pays') is-ivalid @enderror"  wire:model="newUser.pays">
+                <input required type="text" value="{{ old('pays') }}" required class="form-control @error('newUser.pays') is-ivalid @enderror"  wire:model="newUser.pays">
                 @error("newUser.pays")
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
               </div>
               <div class="form-group flex-grow-1">
                 <label>Ville</label>
-                <input type="text" value="{{ old('ville') }}" class="form-control @error('newUser.ville') is-ivalid @enderror" wire:model="newUser.ville">
+                <input type="text" value="{{ old('ville') }}" required class="form-control @error('newUser.ville') is-ivalid @enderror" wire:model="newUser.ville">
                 @error("newUser.ville")
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
               </div>
-            </div>  
-           
+            </div>
+
               <div class="form-group">
                 <label >Password</label>
                 <input type="text" class="form-control" disabled placeholder="Password">

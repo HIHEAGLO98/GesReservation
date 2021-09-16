@@ -6,8 +6,6 @@ use App\Models\User;
 use App\Models\Image;
 use App\Mail\SendMail;
 use Livewire\Component;
-use App\Mail\bookingMail;
-use App\Mail\BookingTest;
 use App\Models\Evenement;
 use App\Models\Participant;
 use App\Models\Reservation;
@@ -17,7 +15,6 @@ use Illuminate\Support\Facades\Mail;
 
 class Acceuil extends Component
 {
-
     use WithPagination;
 
     protected $paginationTheme = "bootstrap";
@@ -28,15 +25,21 @@ class Acceuil extends Component
 
     ];
 
+    public function index()
+    {
+        $images = Image::latest()->paginate(6);
+        $evenements = Evenement::all();
+        return view('front.layout',compact('images','evenements'));
+    }
+
     public function render()
     {
         return view('livewire.acceuils.index',[
             "images" => Image::latest()->paginate(6),
+            "evenements" => Evenement::where('nom',  'LIKE', "%{$this->query}%"),
         ],
         [
-            "reservation"=>Reservation::all(),
             "participant" => Participant::all(),
-            "evenements" => Evenement::where('nom',  'LIKE', "%{$this->query}%"),
         ],)
         ->extends("layouts.master")
         ->section("contenu");

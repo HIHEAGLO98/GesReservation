@@ -46,23 +46,7 @@ class EventOrganisateur extends Component
             ->extends("layouts.master")
             ->section("contenu");;
     }
-    /*
-    protected $rules = [
-
-        'newEvenement.nom' =>'required|unique:evenements,nom',
-        'newEvenement.adresse' =>'required',
-        'newEvenement.description' =>'required',
-        'newEvenement.nombre_place' =>'required|numeric',
-        'newEvenement.datedebut' =>'required|date',
-        'newEvenement.datefin' => 'required|date',
-        'newEvenement.heuredebut' => 'required',
-        'newEvenement.heurefin' => 'required',
-        'newEvenement.salle_id' => 'required',
-        'newEvenement.type_evenement_id' => 'required',
-        'newEvenement.organisateur_id' =>'required',
-
-    ];
-    */
+   
     public function rules()
     {
         if( $this->currentPage == PAGEEDITFORM)
@@ -123,7 +107,7 @@ class EventOrganisateur extends Component
         $this->dispatchBrowserEvent("ShowSuccessMessage",
             ["message" =>"Evénement modifié avec succès!!"]);
     }
-    
+
     //Ajouter un événement
     public function AddEvent()
     {
@@ -131,6 +115,7 @@ class EventOrganisateur extends Component
       $evenement =  Evenement::create($validationAttributes["newEvenement"]);
       $this->photo = $this->photo->store('photos','public');
       $filename = $this->photo;
+      
       $image = new Image();
 
       $image->path = $filename;

@@ -3,7 +3,7 @@
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title"><i class="fas fa-user-plus fa-2x"></i> Formulaire d'ajout d'une nouvelle salle</h3>
+            <h3 class="card-title"><i class="fas fa-user-plus fa-2x"></i> Formulaire d'ajout d'un lieu</h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->
@@ -11,7 +11,7 @@
               @csrf
             <div class="card-body">
               <div class="form-group">
-                <label>Salle</label>
+                <label>Lieu</label>
                 <input type="text" class="form-control @error('newSalles.nom_salle') is-ivalid @enderror" wire:model="newSalles.libelle_salle">
                @error("newSalles.libelle_salle")
                    <span class="text-danger">{{ $message }}</span>

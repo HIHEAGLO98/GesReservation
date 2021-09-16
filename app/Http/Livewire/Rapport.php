@@ -14,6 +14,7 @@ class Rapport extends Component
     public $ticket;
     public $reservation;
     public $event;
+    
     public function render()
     {
         $this->ticket = Ticket::count();

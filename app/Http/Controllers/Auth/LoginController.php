@@ -46,17 +46,17 @@ class LoginController extends Controller
     {
         
          if(Auth::user()->role == "participant"){
-             $this->redirectTo = '/participant.';
+             $this->redirectTo = '/accueil';
              return $this->redirectTo;
          }
 
          if(Auth::user()->role == "organisateur"){
-             $this->redirectTo = '/organisateur.';
+             $this->redirectTo = '/accueil';
              return $this->redirectTo;
          }
 
          if(Auth::user()->role == "admin"){
-            $this->redirectTo = '/admin.';
+            $this->redirectTo = '/accueil';
             return $this->redirectTo;
         }
 

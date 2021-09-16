@@ -14,7 +14,7 @@
           @csrf
 
         <div class="input-group mb-3">
-            <input type="email" class="form-control @error('email') is-invalid @enderror"
+            <input  type="email" class="form-control @error('email') is-invalid @enderror"
             placeholder="Email" name="email" id="email"
             value="{{ old('email') }}"
             required autocomplete="email"
@@ -32,7 +32,7 @@
         </div>
 
         <div class="input-group mb-3">
-            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+            <input type="password" required name="password" class="form-control @error('password') is-invalid @enderror"
             placeholder="Password" id="password">
             <div class="input-group-append">
                 <div class="input-group-text text-white">

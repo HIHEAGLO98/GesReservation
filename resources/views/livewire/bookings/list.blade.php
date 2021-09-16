@@ -39,7 +39,7 @@
                 $booking->created_at->diffForHumans()}}</span></td>
                 <td class="text-center">
                     <button class="btn btn-link"><i class="far fa-edit" ></i> </button>
-                    <button class="btn btn-link"><i class="far fa-trash-alt" ></i> </button>
+                    <button class="btn btn-link" $booking->participant->nom}}', {{$booking->id }})"><i class="far fa-trash-alt" ></i> </button>
                 </td>
               </tr>
               @endforeach
@@ -49,5 +49,36 @@
         <!-- /.card-body -->
      </div>
       <!-- /.card -->
-  </div>
-  </div>
+    </div>
+</div>
+
+  <script>
+    window.addEventListener("ShowConfirmMessage", event=>{
+        Swal.fire({
+            title : event.detail.message.title,
+            text: event.detail.message.text,
+            icon: event.detail.message.type,
+            showCancelButton:true,
+            confirmButtonColor:'#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText:'Continuer',
+            canceluttonText: 'Annuler'
+        }).then((result) => {
+            if(result.isConfirmed){
+                @this.deleteBooking(event.detail.message.data.booking_id)
+
+        }
+        })
+        window.addEventListener("ShowSuccessMessage", event=>{
+        Swal.fire({
+            position : 'top-end',
+            icon: 'success',
+            toast:true,
+            title:event.detail.message || 'Opération effecctuée avec succès!!',
+            showConfirmButton: false,
+            timer: 3000
+            }
+        )
+    })
+    })
+</script>

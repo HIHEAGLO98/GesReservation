@@ -65,9 +65,8 @@
       </div>
       <!-- /.card -->
   </div>
-  </div>
-
-  <script>
+</div>
+<script>
     window.addEventListener("ShowConfirmMessage", event=>{
         Swal.fire({
             title : event.detail.message.title,

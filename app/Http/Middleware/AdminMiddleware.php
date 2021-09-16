@@ -19,18 +19,12 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        /*
-        if(Gate::allows("admin"))
-        {
-            return $next($request);
-        }
-        */
         if (!Auth::check()) {
             return redirect()->route('login');
         }
 
         if (Auth::user()->role == 'participant') {
-            return redirect()->route('participant.');
+            return redirect()->route('/accueil');
         }
 
         if (Auth::user()->role == 'admin') {
@@ -38,7 +32,7 @@ class AdminMiddleware
         }
 
         if (Auth::user()->role == 'organisateur') {
-            return redirect()->route('organisateur.');
+            return redirect()->route('/accueil');
         }
         
         if(Gate::allows("admin"))

@@ -35,9 +35,6 @@ class Pay extends Component
         ->section("contenu");
     }
 
-   /* protected $rules = [
-        'newPays.nom_pays' =>'required|unique:pays,nom_pays',
-    ];*/
 
     public function rules()
     {

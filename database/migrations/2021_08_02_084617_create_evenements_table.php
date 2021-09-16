@@ -50,6 +50,7 @@ class CreateEvenementsTable extends Migration
 
              $table->timestamps();
         });
+        schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -62,6 +63,7 @@ class CreateEvenementsTable extends Migration
         Schema::table("evenements",function(Blueprint $table){
             $table->dropConstrainedForeignId("type_evenement_id");
             $table->dropConstrainedForeignId("salle_id");
+            $table->dropConstrainedForeignId("organisateur_id");
         });
         Schema::dropIfExists('evenements');
     }

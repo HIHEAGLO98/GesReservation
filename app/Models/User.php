@@ -48,18 +48,7 @@ class User extends Authenticatable
     ];
 
     
-     /** 
-       * public function roles()
-       * {
-        *    return $this->belongsToMany(Role::class,"user_role","user_id","role_id");
-       * }
-        *
-      ** public function permission()
-    *  {
-     *       return $this->belongsToMany(Permission::class,"user_permission","user_id","permission_id");
-    *    }
-    */  
-
+     
     /**
      * Vérifier si un user a un certain role
      *
@@ -80,9 +69,8 @@ class User extends Authenticatable
         {
             return $role =="organisateur";
         }
-      //  return Auth::user()->role->where("role" , $role)->first() !==null;
-
     }
+
     public function organisateur()
     {
         return $this->hasMany(Organisateur::class);

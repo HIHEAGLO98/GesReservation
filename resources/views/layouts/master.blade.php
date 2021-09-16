@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Booking</title>
-
+  <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
     <link rel="stylesheet" href="{{mix("css/app.css")}}" />
 
     @livewireStyles
@@ -22,7 +22,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('acceuils.index') }}" class="brand-link">
-      <span class="brand-text font-weight-bold text-primary" style="font-size: 1.3em;"><b>BOOKING</b>_EVENT</span>
+      <span class="brand-text font-weight-bold text-primary" style="font-size: 1.3em;"><b>BOOKING</b> EVENT</span>
     </a>
 
     <!-- Sidebar -->
@@ -49,36 +49,31 @@
     <!-- Content Header (Page header) -->
     <!-- /.content-header -->
 
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-         @yield("contenu")
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
+        <!-- Main content -->
+        <div class="content">
+        <div class="container-fluid">
+            @yield("contenu")
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+        </div>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
+ 
   <x-sidebar/>
-  <!-- /.control-sidebar -->
-
+</div>
   <!-- Main Footer -->
   <footer class="main-footer">
-    <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      <strong>BOOKING_EVENT</strong>
+      <strong class="text-primary">BOOKING_EVENT</strong>
     </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2021 <a href="#">Ghust H</a>.</strong> Touts droits reservés.
+    <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Copyright &copy; 2021 <a href="#">Ghust H</a>.</strong> Touts droits reservés.
   </footer>
-</div>
-<!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
-<script src="{{ mix('js/app.js') }}"></script>
-@livewireScripts
+    <script src="{{ mix('js/app.js') }}"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    @livewireScripts
 
 </body>
 </html>

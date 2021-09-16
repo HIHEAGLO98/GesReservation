@@ -32,7 +32,5 @@ class SendMail extends Mailable
         return $this->from('gesbookingcontact@gmail.com')
         ->subject($this->data['subject'])
         ->view('email.mail');
-
-        //return $this->view('view.name');
     }
 }

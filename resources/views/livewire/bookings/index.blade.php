@@ -1,5 +1,4 @@
 <div class="container">
-
     <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach ($bookings as $booking )
             @if ($booking->participant->user_id == Auth::user()->id)
@@ -37,7 +36,7 @@
     </div>
 </div>
 
-<script>
+{{-- <script>
     window.addEventListener("ShowConfirmMessage", event=>{
         Swal.fire({
             title : event.detail.message.title,
@@ -66,4 +65,4 @@
         )
     })
     })
-</script>
+</script> --}}

@@ -108,7 +108,7 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            
+
             <div class="form-group">
                 <label for="photo">Images</label>
                 <input type="file" class="form-control-file" id="photo" disabled name ="photo" wire:model="photo">
@@ -119,7 +119,7 @@
             <!-- /.card-body -->
 
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Enregistrer</button>
+              <button type="submit" class="btn btn-primary">Modifier</button>
               <button type="button" wire:click="goToListEvent()" class="btn btn-danger">Retourner à la liste des événements</button>
             </div>
           </form>

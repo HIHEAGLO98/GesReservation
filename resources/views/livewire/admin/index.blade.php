@@ -17,7 +17,7 @@
             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-bell"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Evénement</font></font></span>
+              <span class="info-box-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Evénements</font></font></span>
               <span class="info-box-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                 {{ $evenement }}
                  </font></font><small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></small>
@@ -33,7 +33,7 @@
             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-book"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Réservation</font></font></span>
+              <span class="info-box-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Réservations</font></font></span>
               <span class="info-box-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $booking }}</font></font></span>
             </div>
             <!-- /.info-box-content -->
@@ -156,10 +156,10 @@
             <!-- ./card-body -->
             <div class="card-footer">
               <div class="row">
-                
-                
-                
-                  
+
+
+
+
                 </div>
               </div>
               <!-- /.row -->
@@ -177,9 +177,9 @@
         <!-- Left col -->
         <div class="col-md-8">
           <!-- MAP & BOX PANE -->
-         
+
           <!-- /.card -->
-         
+
           <!-- /.row -->
 
           <!-- TABLE: LATEST ORDERS -->
@@ -210,7 +210,7 @@
                   <tbody>
                  @foreach($bookings as $booking)
                   <tr>
-                    
+
                         <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$booking->participant->nom}}</font></font></td>
                         <td><span class="badge badge-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $booking->evenement->nom }}</font></font></span></td>
                         <td>
@@ -255,7 +255,7 @@
             </div>
             <!-- /.info-box-content -->
           </div>
-          <!-- /.info-box 
+          <!-- /.info-box
           <div class="info-box mb-3 bg-danger">
             <span class="info-box-icon"><i class="fas fa-cloud-download-alt"></i></span>
 
@@ -263,9 +263,9 @@
               <span class="info-box-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Téléchargements</font></font></span>
               <span class="info-box-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">114&nbsp;381</font></font></span>
             </div>
-         
+
           </div> -->
-         
+
         </div>
         <!-- /.col -->
       </div>

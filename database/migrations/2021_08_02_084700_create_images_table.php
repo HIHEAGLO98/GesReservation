@@ -39,7 +39,7 @@ class CreateImagesTable extends Migration
     {
         Schema::table("images",function(Blueprint $table){
             $table->dropConstrainedForeignId("evenement_id");
-           // $table->dropConstrainedForeignId("evenement_id");
+          
         });
         Schema::dropIfExists('images');
     }

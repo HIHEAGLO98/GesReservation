@@ -17,7 +17,7 @@
             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-bell"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Evénement</font></font></span>
+              <span class="info-box-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Evénements</font></font></span>
               <span class="info-box-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                 {{ $event }}
                  </font></font><small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></small>
@@ -33,7 +33,7 @@
             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-book"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Réservation</font></font></span>
+              <span class="info-box-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Réservations</font></font></span>
               <span class="info-box-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $reservation }}</font></font></span>
             </div>
             <!-- /.info-box-content -->

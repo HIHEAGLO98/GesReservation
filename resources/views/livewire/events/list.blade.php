@@ -8,7 +8,7 @@
               <a class="btn btn-link text-white mr-4 d-block" wire:click.prevent="goToAddEvent()"><i class="fas fa-list-ul"></i>
                   Nouvel Evénement</a>
             <div class="input-group input-group-md" style="width: 250px;">
-              <input type="text" name="search" class="form-control float-right" placeholder="Search" wire:model.debounce.500ms="search">
+              <input type="text" name="search" class="form-control float-right" placeholder="Rechecher un événement" wire:model.debounce.500ms="search">
 
               <div class="input-group-append">
                 <button type="submit" class="btn btn-default">
@@ -54,6 +54,9 @@
          </div class="float-right">
               {{ $evenements->links() }}
          </div>
+         <div class="text-right">
+            <a href="#" class="btn btn-success">Export PDF</a>
+        </div>
       </div>
       <!-- /.card -->
   </div>

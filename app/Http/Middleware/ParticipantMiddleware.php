@@ -23,7 +23,7 @@ class ParticipantMiddleware
         }
 
         if (Auth::user()->role == 'organisateur') {
-            return redirect()->route('organisateur.');
+            return redirect()->route('/accueil');
         }
 
         if (Auth::user()->role == 'participant') {
@@ -31,7 +31,7 @@ class ParticipantMiddleware
         }
 
         if (Auth::user()->role == 'admin') {
-            return redirect()->route('admin.');
+            return redirect()->route('/accueil');
         }
         
         if(Gate::allows("participant"))

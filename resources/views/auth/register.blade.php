@@ -10,7 +10,7 @@
   <!-- /.login-logo -->
   <div class="card bg-dark">
     <div class="card-body bg-dark login-card-body">
-        
+
       <form method="POST" action="{{ route('register') }}">
           @csrf
           <div class="input-group mb-3">
@@ -31,6 +31,23 @@
             @enderror
           </div>
           <div class="input-group mb-3">
+            <input type="email" class="form-control @error('email') is-invalid @enderror"
+            placeholder="Email" name="email" id="email"
+            value="{{ old('email') }}"
+            required autocomplete="email"
+            autofocus>
+            <div class="input-group-append">
+              <div class="input-group-text text-white">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+            @error('email')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+          </div>
+          {{-- <div class="input-group mb-3">
             <input type="name" class="form-control @error('adresse') is-invalid @enderror"
             placeholder="adresse" name="adresse" id="adresse"
             value="{{ old('adresse') }}"
@@ -46,32 +63,14 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-          </div>
+          </div> --}}
 
-        <div class="input-group mb-3">
-          <input type="email" class="form-control @error('email') is-invalid @enderror"
-          placeholder="Email" name="email" id="email"
-          value="{{ old('email') }}"
-          required autocomplete="email"
-          autofocus>
-          <div class="input-group-append">
-            <div class="input-group-text text-white">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-          @error('email')
-          <span class="invalid-feedback" role="alert">
-              <strong>{{ $message }}</strong>
-          </span>
-          @enderror
-
-        </div>
          <div class="input-group mb-3">
-            <select  name="role" class="form-control @error('role') is-invalid @enderror">
+            <select required name="role" class="form-control @error('role') is-invalid @enderror">
                 <option>participant</option>
                 <option>organisateur</option>
             </select>
-          
+
           @error('role')
           <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
@@ -79,9 +78,8 @@
           @enderror
         </div>
 
-
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+          <input required type="password" name="password" class="form-control @error('password') is-invalid @enderror"
            placeholder="Password" id="password">
           <div class="input-group-append">
             <div class="input-group-text text-white">

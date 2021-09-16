@@ -1,5 +1,5 @@
 <div class="row  p-4 pt-5">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
@@ -17,8 +17,8 @@
                    <span class="text-danger">{{ $message }}</span>
                @enderror
               </div>
-            
-           
+
+
               <div class="form-group">
                 <label>Pays</label>
                 <select class="form-control @error('newVilles.pays_id') is-ivalid @enderror" wire:model="newVilles.pays_id">
@@ -31,7 +31,7 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
               </div>
-            </div>   
+            </div>
             <!-- /.card-body -->
 
             <div class="card-footer">

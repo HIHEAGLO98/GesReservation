@@ -13,13 +13,13 @@ class Reservations extends Component
 {
     use WithPagination;
     protected $paginationTheme = "bootstrap";
-    
+
     public function render()
     {
         return view('livewire.reservations.index',
         [
             "participant"=>Participant::all(),
-            "bookings" => Reservation::all(),
+            "bookings" => Reservation::latest()->paginate(10),
         ])
         ->extends("layouts.master")
         ->section("contenu");

@@ -2,11 +2,11 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header bg-primary d-flex align-items-center">
-          <h3 class="card-title flex-grow-1"><i class="fas fa-list-ul"></i> Liste des Salles</h3>
+          <h3 class="card-title flex-grow-1"><i class="fas fa-list-ul"></i> Liste des Lieux</h3>
 
           <div class="card-tools d-flex align-items-center">
               <a class="btn btn-link text-white mr-4 d-block" wire:click.prevent="goToAddSalle()"><i class="fas fa-user-plus"></i>
-                  Nouvelle salle</a>
+                  Nouveau Lieu</a>
             <div class="input-group input-group-md" style="width: 250px;">
               <input type="text" name="table_search" class="form-control float-right" placeholder="Search" wire:model.debounce.500ms="search">
 
@@ -24,7 +24,7 @@
             <thead>
               <tr>
                 <th style="width: 5%;"></th>
-                <th style="width: 20%;">Salle</th>
+                <th style="width: 20%;">Lieu</th>
                 <th style="width:20;">Ville</th>
                 <th style="width: 20%;" class="text-center">Ajouté</th>
                 <th style="width: 35%;" class="text-center">Action</th>

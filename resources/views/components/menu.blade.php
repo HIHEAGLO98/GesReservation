@@ -46,7 +46,7 @@
         <a href="#" class="nav-link {{ setMenuClass('admin.habilitations.', 'active') }}">
           <i class=" nav-icon fas fa-user-shield"></i>
           <p>
-            Gestion Utilisateurs
+            Gestion Comptes
             <i class="right fas fa-angle-left"></i>
           </p>
         </a>
@@ -145,7 +145,6 @@
                 <a href="{{route("admin.rapport.admin.index")}}"
                 class="nav-link">
                 <i class="nav-icon fas fa-chart-bar"></i>
-               <!-- <i class="nav-icon fas fa-sliders-h"></i>-->
                 <p>Rapport</p>
                 </a>
             </li>
@@ -171,12 +170,14 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('tickets.show')}}"
+                 class="nav-link" {{ setMenuActive('organisateur.evenement.tickets.show') }}>
                 <i class="nav-icon fas fa-sliders-h"></i>
                 <p>Tickets</p>
                 </a>
             </li>
        </ul>
+
         <li class="nav-item">
             <a href="{{ route('organisateur.evenement.rapport.index') }}"
             class="nav-link {{ setMenuActive('organisateur.evenement.rapport.index') }}">
@@ -186,35 +187,5 @@
         </li>
     </li>
     @endcan
-
-     <!--
-      <li class="nav-header">LOCATION</li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <p>
-            <i class="nav-icon fas fa-users"></i>
-            Gestion des clients
-          </p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-exchange-alt"></i>
-          <p>
-            Gestion des locations
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-header">CAISSE</li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-coins"></i>
-          <p>
-            Gestion des paiements
-          </p>
-        </a>
-      </li>-->
-
     </ul>
   </nav>

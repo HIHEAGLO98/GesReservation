@@ -34,29 +34,31 @@ use App\Http\Livewire\EventOrganisateur;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 /*
+page d'acceuil
 Route::get('/', function () {
     return view('welcome');
 });*/
 
 
 Auth::routes();
-/*
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
-->name('home')
-->middleware("auth");
 
+Route::get('/', [App\Http\Livewire\Acceuil::class, 'index'])
+->name('home');
+/*
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])
 ->name('home')
 ->middleware("auth");*/
 
-Route::get("/home", Acceuil::class)->name("acceuils.index")->middleware("auth");
-Route::get("/", Acceuil::class)->name("acceuils.index")->middleware("auth");
+//Route::get("/home", Acceuil::class)->name("acceuils.index")->middleware("auth");
+Route::get("/accueil", Acceuil::class)->name("acceuils.index")->middleware("auth");
 Route::get('/tickets',Tickets::class)->name("tickets.index")->middleware("auth.participant");
 Route::resource('/profil', UserController::class)->middleware("auth");
 Route::get('/exportPDF', [Evenements::class,"generatePDF"])->middleware("auth.admin");
 Route::get('/bookingPDF', [Reservations::class,"generatePDF"])->middleware("auth.admin");
 Route::get('/usersPDF', [Utilisateurs::class,"generatePDF"])->middleware("auth.admin");
+Route::get('/ticket',[UserController::class,"showTicket"])->name("tickets.show")->middleware("auth.organisateur");
 
 //groupe des routes relatives à l'admin
     Route::group([
@@ -90,8 +92,6 @@ Route::get('/usersPDF', [Utilisateurs::class,"generatePDF"])->middleware("auth.a
             Route::get("/pays", Pay::class)->name("pays.index");
 
         } );
-
-
 
         Route::group([
             "prefix" =>"gestion",
@@ -143,8 +143,7 @@ Route::get('/usersPDF', [Utilisateurs::class,"generatePDF"])->middleware("auth.a
         ], function(){
             Route::get("/dashboard", Admin::class)->name("admin.index");
         });
-
-    });
+});
 
     //reservation participant
     Route::group([
@@ -192,8 +191,8 @@ Route::get('/usersPDF', [Utilisateurs::class,"generatePDF"])->middleware("auth.a
         ], function(){
             Route::get("/events", EventOrganisateur::class)->name("event.index");
             Route::get('rapport', Rapport::class)->name("rapport.index");
-
         });
+
 
     });
 

@@ -8,7 +8,7 @@
               <a class="btn btn-link text-white mr-4 d-block" wire:click.prevent="goToAddType()"><i class="fas fa-user-plus"></i>
                   Nouveau Type</a>
             <div class="input-group input-group-md" style="width: 250px;">
-              <input type="text" name="search" class="form-control float-right" placeholder="Search">
+              <input type="text" name="search" class="form-control float-right" placeholder="Rechecher un type d'événement" wire:model.debounce.500ms="search">
 
               <div class="input-group-append">
                 <button type="submit" class="btn btn-default">
@@ -49,7 +49,7 @@
         <!-- /.card-body -->
         <div class="card-footer">
          </div class="float-right">
-           {{-- $type_evenement->links() --}}
+           {{-- $type_evenements->links() --}}
          </div>
       </div>
       <!-- /.card -->

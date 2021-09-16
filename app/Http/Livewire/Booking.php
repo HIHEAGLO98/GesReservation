@@ -28,6 +28,7 @@ class Booking extends Component
         ->extends("layouts.master")
         ->section("contenu");
     }
+    
 
     public function index()
     {

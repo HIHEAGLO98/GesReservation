@@ -13,10 +13,17 @@ class TypeEvenement extends Component
     public $isBtnAddClicked = false;
     public $newTypes = [];
 
+    public string $search = '';
+
+    protected $queryString = [
+        'search' => ['except' => '']
+
+    ];
+
     public function render()
     {
         return view('livewire.types.index',[
-            "type_evenements" => Type_evenement::latest()->paginate(15)
+            "type_evenements" => Type_evenement::where('libelle_type_ev',  'LIKE', "%{$this->search}%" )->paginate(1000)
              ])
             ->extends("layouts.master")
             ->section("contenu");;
@@ -39,10 +46,8 @@ class TypeEvenement extends Component
 
     public function addType()
     {
-        //dump($this->newUser);
        $validationAttriutes =  $this->validate();
-       //$validationAttriutes["newUser"] ["password"] = "password";
-
+       
        Type_evenement::create($validationAttriutes["newTypes"]);
        
        $this->newTypes = [];

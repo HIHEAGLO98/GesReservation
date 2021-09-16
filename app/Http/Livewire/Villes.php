@@ -12,8 +12,7 @@ class Villes extends Component
 {
     use WithPagination;
     protected $paginationTheme = "bootstrap";
-   // public $isBtnAddClicked = false;
-
+   
    public $currentPage = PAGELIST;
 
     public $newVilles = [];
@@ -41,12 +40,7 @@ class Villes extends Component
         ->section("contenu");;
     }
 
-   /* protected $rules = [
-        'newVilles.nom_ville' =>'required|unique:villes,nom_ville',
-        'newVilles.pays_id' => 'required',
-    ];
-    */
-
+  
     public function goToAddVille()
     {
         $this->currentPage = PAGECREATEFORM;

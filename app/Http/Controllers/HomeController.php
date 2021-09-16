@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
+use App\Models\Evenement;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest');
     }
 
     /**
@@ -21,8 +23,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
-        return view('home');
+        $images = Image::latest()->paginate(6);
+        $evenements = Evenement::all();
+        return view('front.layout',compact('images','evenements'));
     }
 }

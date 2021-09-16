@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Image;
+use App\Models\Ticket;
+use App\Models\Evenement;
 use App\Models\Participant;
 use App\Models\Reservation;
+use App\Models\Type_ticket;
 use App\Models\Organisateur;
 use Illuminate\Http\Request;
 use App\Http\Livewire\Booking;
@@ -90,10 +94,20 @@ class UserController extends Controller
             'sexe'=>'required',
         ]);
 
-      
          User::find(Auth::user()->id)->update($validate);
-        
+
         return redirect()->route('profil.show', ['profil' => Auth::user()->id])->with('info', 'mise à jour effectuée avec succès',compact('user'));
     }
+
+    //function pour afficher les tickets
+    public function showTicket()
+    {
+        return view("tickets.show",[
+            "tickets"=>Ticket::all(),
+            "type_tickets" => Type_ticket::all(),
+            "evenements" => Evenement::all(),
+        ]);
+    }
+
 
 }

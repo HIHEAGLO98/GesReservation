@@ -11,31 +11,18 @@ use Illuminate\Validation\Rule;
 class Utilisateurs extends Component
 {
     use WithPagination;
-    protected $paginationTheme = "bootstrap"; 
+    protected $paginationTheme = "bootstrap";
     public $currentPage = PAGELIST;
     public $newUser =  [];
     public $editUser = [];
 
-  /*  protected $rules = [
-        'newUser.name' =>'required',
-        'newUser.email' =>'required|email|unique:users,email',
-        'newUser.adresse' =>'required',
-        'newUser.contact' =>'required|numeric|unique:users,contact',
-        'newUser.sexe' =>'required',
-        'newUser.ville' =>'required',
-        'newUser.pays' => 'required',
 
+    public $search = '';
+
+    protected $queryString = [
+        'search' => ['except' => '']
 
     ];
-
-*/
-
-public $search = '';
-
-protected $queryString = [
-    'search' => ['except' => '']
-
-];
 
     public function render()
     {

@@ -11,20 +11,24 @@ class Users extends Component
     use WithPagination;
     protected $paginationTheme = "bootstrap";
     public $search = '';
+    public $user;
 
     protected $queryString =[
         'search' => ['except' => '']
 
     ];
+
+    
     public function render()
     {
+        $this->user = User::count();
+    
         return view('livewire.users.index',[
             "users" => User::latest()->paginate(6),
         ])
         ->extends("layouts.master")
         ->section("contenu");
     }
-
 
 
     public function confirmDelete($name, $id)

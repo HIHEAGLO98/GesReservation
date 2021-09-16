@@ -24,7 +24,7 @@ class Admin extends Component
         $this->tickets = Ticket::count();
 
         return view('livewire.admin.index',[
-            "bookings"=>Reservation::all(),
+            "bookings"=>Reservation::latest(),
         ])
         ->extends("layouts.master")
         ->section("contenu");

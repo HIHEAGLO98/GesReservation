@@ -62,7 +62,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'role'=>['required'],
-            'adresse'=>['required'],
+           
         ]);
     }
 
@@ -79,18 +79,18 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'role'=>   $data['role'],
-            'adresse'=> $data['adresse'],
+            //'adresse'=> $data['adresse'],
             'password' => Hash::make($data['password']),
-        ]); 
-        
+        ]);
+
         $max = User::selectRaw('MAX(id) as id')->get();
         $max = $max[0]['id'];
         $p = User::where('id', '=', $max)->get();
         $p = $p[0];
-        
+
 
         if ($p->role == "participant") {
-            
+
           $this->participant =  Participant::create([
                 'user_id'=>$p->id,
                 'nom' => $p->name,
@@ -99,7 +99,7 @@ class RegisterController extends Controller
         }
 
         if ($p->role == "organisateur") {
-            
+
           $this->organisateur = Organisateur::create([
             'user_id'=>$p->id,
             'nom' => $p->name,

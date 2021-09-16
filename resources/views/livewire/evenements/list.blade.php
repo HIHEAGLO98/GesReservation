@@ -2,13 +2,13 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header bg-primary d-flex align-items-center">
-          <h3 class="card-title flex-grow-1"><i class="fas fa-list-ul"></i> Liste des événements</h3>
+          <h3 class="card-title flex-grow-1"><i class="fas fa-list-ul"></i> Liste des événements ({{$event}})</h3>
 
           <div class="card-tools d-flex align-items-center">
               <a class="btn btn-link text-white mr-4 d-block" wire:click.prevent="goToAddEvent()"><i class="fas fa-list-ul"></i>
                   Nouvel Evénement</a>
             <div class="input-group input-group-md" style="width: 250px;">
-              <input type="text" name="search" class="form-control float-right" placeholder="Search" wire:model.debounce.500ms="search">
+              <input type="text" name="search" class="form-control float-right" placeholder="Rechecher un événement" wire:model.debounce.500ms="search">
 
               <div class="input-group-append">
                 <button type="submit" class="btn btn-default">
@@ -52,7 +52,7 @@
               {{ $evenements->links() }}
          </div>
          <div class="text-right">
-             <a href="/exportPDF" class="btn btn-success">Export PDF</a>
+             <a href="/exportPDF" class="btn btn-success"><i class="fas fa-print"></i> Export PDF</a>
          </div>
       </div>
       <!-- /.card -->

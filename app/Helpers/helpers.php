@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Str;
+//use Illuminate\Routing\Route;
+
 
 define("PAGELIST", "list");
 define("PAGECREATEFORM", "create");
@@ -45,3 +47,10 @@ function setMenuActive($route){
     }
     return "";
 }
+
+if (!function_exists('currentRoute')) {
+    function currentRoute($route)
+    {
+        return Route::currentRouteNamed($route) ? ' class=current' : '';
+    }
+  }

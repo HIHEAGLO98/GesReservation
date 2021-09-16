@@ -1,0 +1,10 @@
+<svg width="500" height="80" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+    <text 
+	fill="white"
+        x="1em" y="60"
+        font-size="80" 
+        font-weight="bold"
+        font-family="Verdana, Arial, Helvetica, sans-serif">
+        Mon Blog
+    </text>
+</svg>

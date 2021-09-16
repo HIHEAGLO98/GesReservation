@@ -18,18 +18,12 @@ class OrganisateurMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        /*
-        if(Gate::allows("organisateur"))
-        {
-            return $next($request);
-        }
-        */
         if (!Auth::check()) {
             return redirect()->route('login');
         }
 
         if (Auth::user()->role == 'admin') {
-            return redirect()->route('admin.');
+            return redirect()->route('/accueil');
         }
 
         if (Auth::user()->role == 'organisateur') {
@@ -37,7 +31,7 @@ class OrganisateurMiddleware
         }
 
         if (Auth::user()->role == 'participant') {
-            return redirect()->route('participant.');
+            return redirect()->route('/accueil');
         }
         
         if(Gate::allows("organisateur"))

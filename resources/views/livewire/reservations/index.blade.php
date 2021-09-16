@@ -35,7 +35,7 @@
                 <tr>
                   <td>{{$booking->participant->nom}}</td>
                   <td>{{ $booking->evenement->nom }}</td>
-                  <td class="text-center"><span class="tag tag-success">{{date('j/m/y',strtotime($booking->created_at))}}</span></td>
+                  <td class="text-center"><span class="tag tag-success">{{date('j-m-y',strtotime($booking->created_at))}}</span></td>
                   <td class="text-center">
                       <button class="btn btn-link"><i class="far fa-edit" ></i> </button>
                       <button class="btn btn-link"><i class="far fa-trash-alt" ></i> </button>
@@ -48,13 +48,13 @@
         <!-- /.card-body -->
         <div class="card-footer">
         </div class="float-right">
-            {{--   {{ $bookings->links() }} --}}
+            {{ $bookings->links() }}
         </div>
         <div class="text-right">
-            <a href="/bookingPDF" class="btn btn-success">Export PDF</a>
+            <a href="/bookingPDF" class="btn btn-success"><i class="fas fa-print"></i>  Imprimer PDF</a>
         </div>
       <!-- /.card -->
   </div>
   </div>
 
- 
+

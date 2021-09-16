@@ -8,9 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Organisateur extends Model
 {
     use HasFactory;
-    //protected $guard = [];
+    
     protected $fillable = [
-        'id',
         'nom',
         'contact',
         'user_id'
@@ -24,6 +23,7 @@ class Organisateur extends Model
         return $this->hasMany(Evenement::class);
     }
 
+    //un organisateur est un user
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');

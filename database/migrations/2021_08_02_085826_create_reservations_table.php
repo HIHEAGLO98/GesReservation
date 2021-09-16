@@ -41,7 +41,7 @@ class CreateReservationsTable extends Migration
     public function down()
     {
         Schema::table("reservations",function(Blueprint $table){
-            $table->dropForeignId("user_id");
+            $table->dropForeignId("participant_id");
             $table->dropForeign("evenement_id");
 
         });

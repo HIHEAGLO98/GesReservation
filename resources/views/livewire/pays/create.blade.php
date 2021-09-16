@@ -1,5 +1,5 @@
 <div class="row  p-4 pt-5">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
@@ -12,9 +12,9 @@
             <div class="card-body">
               <div class="form-group">
                 <label>Pays</label>
-                <input type="text" class="form-control @error('newPays.nom_pays') is-ivalid @enderror" wire:model="newPays.nom_pays">
+                <input required type="text" class="form-control @error('newPays.nom_pays') is-ivalid @enderror" wire:model="newPays.nom_pays">
                @error("newPays.nom_pays")
-                   <span class="text-danger">{{ $message }}</span>
+                   <span class="text-danger"><p>Ce nom est déjà pris</p></span>
                @enderror
               </div>
             <!-- /.card-body -->

@@ -12,23 +12,26 @@
     <ul class="navbar-nav ml-auto">
 
         <li>
-            <!-- SidebarSearch Form -->
-         <!-- <form action="" method="GET">
-            <div class="form-inline">
-                <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search"  name ="query" placeholder="Search" aria-label="Search" wire:model.debounce.500ms="searchev">
-                <div class="input-group-append">
-                    <button class="btn btn-sidebar">
-                    <i class="fas fa-search fa-fw"></i>
-                    </button>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                  <i class="fas fa-search"></i>
+                </a>
+                <div class="navbar-search-block" style="display: none;">
+                  <form class="form-inline" action="{{ route('acceuils.index')}}" method="GET">
+                    <div class="input-group input-group-sm">
+                      <input class="form-control form-control-navbar" name="query" type="search" placeholder="Rechecher un événement"  aria-label="Chercher">
+                      <div class="input-group-append">
+                        <button class="btn btn-navbar" type="submit">
+                          <i class="fas fa-search"></i>
+                        </button>
+                        <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                          <i class="fas fa-times"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-                </div>
-            </div>
-        </form>-->
-        <form class="d-flex" action="{{ route('acceuils.index') }}" method="GET">
-            <input class="form-control me-2" type="search" name="query" placeholder="Search" wire:model.debounce.500ms="query" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+              </li>
        </li>
        @can("participant")
         <li class="nav-item">
@@ -40,7 +43,7 @@
 
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+       <!-- <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
           <span class="badge badge-warning navbar-badge">15</span>
         </a>
@@ -54,7 +57,7 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
+      </li>-->
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>

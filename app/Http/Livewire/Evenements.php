@@ -11,7 +11,7 @@ use App\Models\Organisateur;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 use App\Models\Type_evenement;
-use Illuminate\Support\Facades\Auth;
+
 class Evenements extends Component
 {
     use WithPagination;
@@ -22,7 +22,7 @@ class Evenements extends Component
     public $editEvenement = [];
     public $photo;
     public $evenement;
-
+    public $event;
 
     public $currentPage = PAGELIST;
 
@@ -32,11 +32,14 @@ class Evenements extends Component
         'search' => ['except' => '']
 
     ];
+  
 
     public function render()
     {
+        $this->event = Evenement::count();
+
         return view('livewire.evenements.index',[
-            "evenements" => Evenement::where('nom',  'LIKE', "%{$this->search}%" )->paginate(10)
+            "evenements" => Evenement::where('nom',  'LIKE', "%{$this->search}%")->paginate(10)
         ],
         [
             "organisateurs" => Organisateur::all(),
@@ -54,25 +57,9 @@ class Evenements extends Component
         $evenements = Evenement::all();
         view()->share('evenements', $evenements);
        $pdf = PDF::loadView('report.pdf', $evenements);
-        return $pdf->download("Listevenement.pdf");
+        return $pdf->download("ListEvenement.pdf");
     }
 
-    /*
-    protected $rules = [
-
-        'newEvenement.nom' =>'required|unique:evenements,nom|max:255',
-        'newEvenement.adresse' =>'required',
-        'newEvenement.description' =>'required|max:500',
-        'newEvenement.nombre_place' =>'required|numeric',
-        'newEvenement.datedebut' =>'required|date|min:now()',
-        'newEvenement.datefin' => 'required|date',
-        'newEvenement.heuredebut' => 'required',
-        'newEvenement.heurefin' => 'required',
-        'newEvenement.salle_id' => 'required',
-        'newEvenement.type_evenement_id' => 'required',
-        'newEvenement.organisateur_id' => 'required',
-
-    ];*/
     public function rules()
     {
         if( $this->currentPage == PAGEEDITFORM)
@@ -83,7 +70,7 @@ class Evenements extends Component
                 'editEvenement.description' =>'required|max:500',
                 'editEvenement.nombre_place'=>'required|numeric',
                 'editEvenement.datedebut' =>'required|date',
-                'editEvenement.datefin' =>'required',
+                'editEvenement.datefin' =>'required|date',
                 'editEvenement.heuredebut' => 'required',
                 'editEvenement.heurefin'=>'required',
                 'editEvenement.salle_id' =>'required',
@@ -125,13 +112,13 @@ class Evenements extends Component
      public function UpdateEvent()
      {
         $validationAttributes = $this->validate();
-        //dd($validationAttributes);
-
+        
         Evenement::find($this->editEvenement["id"])->update($validationAttributes["editEvenement"]);
 
         $this->dispatchBrowserEvent("ShowSuccessMessage",
         ["message" =>"Evénement modifié avec succès!!"]);
-     }
+    }
+
 
     public function AddEvent()
     {
@@ -177,6 +164,7 @@ class Evenements extends Component
           ]
         ]]);
     }
+
 
     public function deleteEvent($id)
     {

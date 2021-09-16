@@ -2,9 +2,10 @@
     <!-- Default box -->
     <div class="card card-solid">
       <div class="card-body pb-0">
-        <div class="row"> 
+          <p class="text-center text-primary"><strong> LISTES DES UTILISATEURS ({{ $user }})</strong> </p>
+        <div class="row">
         @foreach ($users as $user )
-        @if ($user->role =="participant" || $user->role == "organisateur")     
+        @if ($user->role =="participant" || $user->role == "organisateur")
           <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
             <div class="card bg-light d-flex flex-fill">
               <div class="card-header text-muted border-bottom-0">
@@ -17,7 +18,7 @@
                     <h2 class="lead text-primary"><b>{{ $user->name }}</b></h2>
                     <ul class="ml-4 mb-0 fa-ul text-muted">
                       <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Adresse: {{ $user->adresse }}</li><br/>
-       
+
                       <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Pays: {{ $user->pays }}</li><br/>
                       <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Ville: {{ $user->ville }}</li><br/>
                       <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> {{ $user->email }}</li><br/>
@@ -35,8 +36,8 @@
               </div>
               <div class="card-footer">
                 <div class="text-right">
-                    <button class="btn btn-link"><i class="far fa-edit" ></i> </button>
-                    <button class="btn btn-link" 
+                    <button class="btn btn-link"><i class="fas fa-print"></i> </button>
+                    <button class="btn btn-link"
                         wire:click="confirmDelete('{{ $user->name}}', {{$user->id }})">
                         <i class="far fa-trash-alt" ></i>
                     </button>
