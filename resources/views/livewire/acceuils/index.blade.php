@@ -3,7 +3,7 @@
         @foreach ($images as $image )
         <div class="col">
             <div class="card card-info card-outline">
-                <a href="" class="thumb-link">
+                <a href="#" class="thumb-link">
                 <img class="card-img-top" src="{{ asset('/storage/'.$image->path) }}" alt="Photo de couverture" style="height:24rem;">
                 </a>
                 <div class="card-body ">

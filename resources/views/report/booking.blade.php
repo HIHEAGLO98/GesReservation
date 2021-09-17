@@ -29,7 +29,7 @@
             <th style="width: 25%;">Evénement</th>
             <th style="width: 25%;">Participant</th>
             <th style="width: 25%;">Organisateur</th>
-            <th style="width: 25%;" class="text-center">Date Réservation</th>
+            <th style="width: 25%;" class="text-center">Date de Réservation</th>
             </tr>
         </thead>
         <tbody>

@@ -8,7 +8,7 @@
               <a class="btn btn-link text-white mr-4 d-block" wire:click.prevent="goToAddSalle()"><i class="fas fa-user-plus"></i>
                   Nouveau Lieu</a>
             <div class="input-group input-group-md" style="width: 250px;">
-              <input type="text" name="table_search" class="form-control float-right" placeholder="Search" wire:model.debounce.500ms="search">
+              <input type="text" name="table_search" class="form-control float-right" placeholder="Rechercher un lieu" wire:model.debounce.500ms="search">
 
               <div class="input-group-append">
                 <button type="submit" class="btn btn-default">

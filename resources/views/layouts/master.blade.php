@@ -21,7 +21,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ route('acceuils.index') }}" class="brand-link">
+    <a href="{{ route('home') }}" class="brand-link">
       <span class="brand-text font-weight-bold text-primary" style="font-size: 1.3em;"><b>BOOKING</b> EVENT</span>
     </a>
 
