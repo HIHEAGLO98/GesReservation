@@ -2,7 +2,6 @@
 
 //use App\Htpp\Livewire\Utlisateurs;
 
-use App\Http\Controllers\SearchController;
 use App\Models\User;
 use App\Http\Livewire\Pay;
 use App\Http\Livewire\Admin;
@@ -19,8 +18,10 @@ use App\Http\Livewire\Utilisateurs;
 use App\Http\Livewire\TypeEvenement;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\BookOrganisteur;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\EventOrganisateur;
+use App\Http\Controllers\SearchController;
 
 //use App\Http\Controllers\UserController;
 
@@ -59,6 +60,7 @@ Route::get('/exportPDF', [Evenements::class,"generatePDF"])->middleware("auth.ad
 Route::get('/bookingPDF', [Reservations::class,"generatePDF"])->middleware("auth.admin");
 Route::get('/usersPDF', [Utilisateurs::class,"generatePDF"])->middleware("auth.admin");
 Route::get('/ticket',[UserController::class,"showTicket"])->name("tickets.show")->middleware("auth.organisateur");
+Route::get('/exportPDF', [EventOrganisateur::class,"generatePDF"])->middleware("auth.organisateur");
 
 //groupe des routes relatives à l'admin
     Route::group([
@@ -133,7 +135,7 @@ Route::get('/ticket',[UserController::class,"showTicket"])->name("tickets.show")
             "as" => 'evenement.',
 
         ],function(){
-            Route::get("/book", Reservations::class)->name("bookings.list");
+            Route::get("/Allbook", Reservations::class)->name("bookings.list");
 
         } );
 
@@ -189,6 +191,7 @@ Route::get('/ticket',[UserController::class,"showTicket"])->name("tickets.show")
             "as" => 'evenement.'
 
         ], function(){
+            Route::get("/book", BookOrganisteur::class)->name("bookings.show");
             Route::get("/events", EventOrganisateur::class)->name("event.index");
             Route::get('rapport', Rapport::class)->name("rapport.index");
         });

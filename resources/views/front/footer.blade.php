@@ -76,7 +76,7 @@
         <div class="row">
             <div class="column">
                 <div class="ss-copyright">
-                    <span class="text-success">© Copyright Booking event 2021</span>
+                    <span class="text-success">© Copyright Booking EVENT 2021</span>
                     <span>Design by <a target="blank" href="https://github.com/HIHEAGLO98">Ghust H</a></span>
                 </div> <!-- end ss-copyright -->
             </div>

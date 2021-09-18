@@ -81,8 +81,8 @@ class Acceuil extends Component
                     <li> heure de début : ' .$evenement->heuredebut . '</li>
                     <li> heure de fin : ' .$evenement->heurefin . '</li>
                     <li> adresse : ' . $evenement->adresse. '</li>
-                    <li> salle : ' . $evenement->salle->libelle_salle. '</li>
-                    <li>Contacts
+                    <li> lieu : ' . $evenement->salle->libelle_salle. '</li>
+                    <li>Contacts organisateur
                         <ul class="mail-contact">
                             <li>
                                 <i class="fas fa-envelope"></i><a class="text-success" href="mailto:' . $evenement->organisateur->user->email. '">' . $evenement->organisateur->user->email . '
@@ -97,10 +97,8 @@ class Acceuil extends Component
 
         $this->MailerSender($info);
         $this->dispatchBrowserEvent("ShowSuccessMessage",
-        ["message" =>"Vous venez de reserver une place pour cet événement!! Consulter votre mail"]);
+        ["message" =>"Vous venez de reserver une place pour cet événement !! Consulter votre mail"]);
 
     }
-
-
 
 }

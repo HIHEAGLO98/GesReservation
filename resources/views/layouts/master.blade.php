@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Booking</title>
-  <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
+  <title>{{ config('app.name') }}</title>
+  {{-- <link rel="icon" type="image/x-icon" href="image/favicon.ico" /> --}}
     <link rel="stylesheet" href="{{mix("css/app.css")}}" />
+
+    <!-- favicons ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
     @livewireStyles
 
@@ -58,7 +63,7 @@
         </div>
     <!-- /.content -->
   </div>
- 
+
   <x-sidebar/>
 </div>
   <!-- Main Footer -->
@@ -66,7 +71,7 @@
     <div class="float-right d-none d-sm-inline">
       <strong class="text-primary">BOOKING_EVENT</strong>
     </div>
-    <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Copyright &copy; 2021 <a href="#">Ghust H</a>.</strong> Touts droits reservés.
+    <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Copyright &copy; 2021 <a target="blank" href="https://github.com/HIHEAGLO98">Ghust H</a>.</strong> Touts droits reservés.
   </footer>
 
     <script src="{{ mix('js/app.js') }}"></script>

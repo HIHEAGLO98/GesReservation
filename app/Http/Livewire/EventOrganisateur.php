@@ -12,6 +12,7 @@ use Livewire\WithFileUploads;
 use App\Models\Type_evenement;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class EventOrganisateur extends Component
 {
@@ -46,6 +47,15 @@ class EventOrganisateur extends Component
             ->extends("layouts.master")
             ->section("contenu");;
     }
+
+     //générer un PDF
+     public function generatePDF()
+     {
+         $evenements = Evenement::all();
+         view()->share('evenements', $evenements);
+        $pdf = PDF::loadView('report.organisateur', $evenements);
+         return $pdf->download("MesEvenements.pdf");
+     }
    
     public function rules()
     {

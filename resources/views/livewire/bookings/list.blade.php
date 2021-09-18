@@ -2,7 +2,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header bg-primary d-flex align-items-center">
-          <h3 class="card-title flex-grow-1"><i class="fas fa-users fa-2x"></i> Liste des Reservations</h3>
+          <h3 class="card-title flex-grow-1"><i class="fas fa-users fa-2x"></i> Liste des Reservations </h3>
 
           <div class="card-tools d-flex align-items-center">
               <a class="btn btn-link text-white mr-4 d-block"><i class="fas fa-user-plus"></i>
@@ -39,9 +39,9 @@
                 $booking->created_at->diffForHumans()}}</span></td>
                 <td class="text-center">
                     <button class="btn btn-link"><i class="far fa-edit" ></i> </button>
-                    <button class="btn btn-link" $booking->participant->nom}}', {{$booking->id }})"><i class="far fa-trash-alt" ></i> </button>
+                    <button class="btn btn-link" wire:click="confirmDelete('{{ $booking->participant->nom}}', {{$booking ->id }})"><i class="far fa-trash-alt" ></i> </button>
                 </td>
-              </tr>
+              </tr> 
               @endforeach
             </tbody>
           </table>

@@ -55,7 +55,7 @@
               {{ $evenements->links() }}
          </div>
          <div class="text-right">
-            <a href="#" class="btn btn-success">Export PDF</a>
+            <a href="/exportPDF" class="btn btn-success">Export PDF</a>
         </div>
       </div>
       <!-- /.card -->

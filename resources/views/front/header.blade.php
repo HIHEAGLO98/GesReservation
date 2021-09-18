@@ -1,7 +1,7 @@
 <header class="s-header @unless(currentRoute('/')) s-header--opaque @endunless">
 
     <div class="s-header__logo">
-        <a class="nav-icon" href="{{ route('home') }}"><i class="fas fa-calendar-week"></i>
+        <a class="nav-icon" href="{{ route('acceuils.index') }}"><i class="fas fa-calendar-week"></i>
             BOOKING EVENT
         </a>
     </div> <br>
@@ -16,10 +16,10 @@
                 <li class="current"><a href="/" title=""> <i class="nav-icon fas fa-home"></i> Home</a></li>
                 <li class="current"><a href="#" title=""> <i class="fas fa-id-card-alt"></i> Contact</a></li>
                 <li class="nav-icon">
-                    <a href="{{route('login')}}" title="">  <i class="fas fa-sign-in-alt"></i> S'Identifier</a>
+                    <a href="{{route('login')}}" title="">  <i class="fas fa-sign-in-alt"></i> Connexion</a>
                 </li>
                 <li class="nav-icon">
-                    <a href="{{route('register')}}" title="">  <i class="fas fa-user-plus"></i> S'Inscrire</a>
+                    <a href="{{route('register')}}" title="">  <i class="fas fa-user-plus"></i> S'enregistrer</a>
                 </li>
 
             </ul> <!-- end s-header__nav -->

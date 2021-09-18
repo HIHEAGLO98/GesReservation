@@ -170,13 +170,20 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('tickets.show')}}"
-                 class="nav-link" {{ setMenuActive('organisateur.evenement.tickets.show') }}>
+                <a href="{{ route('organisateur.evenement.bookings.show') }}"
+                class="nav-link {{ setMenuActive('organisateur.evenement.bookings.show') }}">
                 <i class="nav-icon fas fa-sliders-h"></i>
-                <p>Tickets</p>
+                <p>Les Reservations</p>
                 </a>
             </li>
        </ul>
+        <li class="nav-item">
+            <a href="{{route('tickets.show')}}"
+            class="nav-link" {{ setMenuActive('organisateur.evenement.tickets.show') }}>
+            <i class="nav-icon fas fa-sliders-h"></i>
+            <p>Tickets</p>
+            </a>
+        </li>
 
         <li class="nav-item">
             <a href="{{ route('organisateur.evenement.rapport.index') }}"
@@ -185,6 +192,7 @@
             <p>Rapport</p>
             </a>
         </li>
+        
     </li>
     @endcan
     </ul>

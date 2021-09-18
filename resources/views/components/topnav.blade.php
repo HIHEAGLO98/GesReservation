@@ -35,7 +35,7 @@
        </li>
        @can("participant")
         <li class="nav-item">
-            <a class="nav-link text-white rounded-pill btn btn-primary"  href="{{ route('tickets.index') }}" role="button">
+            <a class="nav-link text-white rounded-pill btn btn-primary"  href="" role="button">
                 Payer un ticket
             </a>
         </li>

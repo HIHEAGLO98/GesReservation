@@ -3,7 +3,7 @@
         @foreach ($images as $image )
         <div class="col">
             <div class="card card-info card-outline">
-                <a href="#" class="thumb-link">
+                <a href="#0" class="">
                 <img class="card-img-top" src="{{ asset('/storage/'.$image->path) }}" alt="Photo de couverture" style="height:24rem;">
                 </a>
                 <div class="card-body ">
@@ -15,17 +15,22 @@
                 @can("participant")
                 <div class="bg-none text-right">
                     <a href="#" class="btn btn-outline-info rounded-pill font-weight-bold" wire:click="booking('{{ $image->evenement->id}}', {{$participant}})">
-                            <i class="fas fa-circle rounded-circle text-secondary" style="size: 10px"></i>      
-                           <b>Réserver</b>  
+                            <i class="fas fa-circle rounded-circle text-secondary" style="size: 10px"></i>
+                           <b>Réserver</b>
                     </a>
                 </div>
-                @endcan 
+                @endcan
                 </div>
             </div>
         </div>
         @endforeach
 
     </div>
+    {{-- <div class="card-footer">
+        <div class="column large-12">
+            {{ $images->links('front.pagination') }}
+        </div>
+    </div> --}}
     <div class="card-footer">
     </div class="float-right">
         {{ $images->links() }}

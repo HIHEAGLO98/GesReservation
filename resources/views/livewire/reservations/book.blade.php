@@ -3,13 +3,13 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header bg-primary d-flex align-items-center">
-          <h3 class="card-title flex-grow-1"><i class="far fa-circle"></i> Liste des Reservations [{{ $book }}]</h3>
+          <h3 class="card-title flex-grow-1"><i class="far fa-circle"></i> Liste des Reservations</h3>
 
           <div class="card-tools d-flex align-items-center">
               <a class="btn btn-link text-white mr-4 d-block">
              </a>
             <div class="input-group input-group-md" style="width: 250px;">
-              <input type="text" name="table_search" class="form-control float-right" placeholder="Rechercher une réservation">
+              <input type="text" name="table_search" class="form-control float-right">
 
               <div class="input-group-append">
                 <button type="submit" class="btn btn-default">
@@ -32,15 +32,17 @@
             </thead>
             <tbody>
                 @foreach($bookings as $booking)
+                @if ($booking->evenement->organisateur->user_id== Auth::user()->id)
                 <tr>
                   <td>{{$booking->participant->nom}}</td>
                   <td>{{ $booking->evenement->nom }}</td>
                   <td class="text-center"><span class="tag tag-success">{{date('j-m-y',strtotime($booking->created_at))}}</span></td>
                   <td class="text-center">
                       <button class="btn btn-link"><i class="far fa-edit" ></i> </button>
-                      <button class="btn btn-link" wire:click="confirmDelete('{{ $booking->participant->nom}}', {{$booking ->id }})"><i class="far fa-trash-alt" ></i> </button>
+                      <button class="btn btn-link"><i class="far fa-trash-alt" ></i> </button>
                   </td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
           </table>
@@ -50,40 +52,11 @@
         </div class="float-right">
             {{ $bookings->links() }}
         </div>
-        <div class="text-right">
+        {{-- <div class="text-right">
             <a href="/bookingPDF" class="btn btn-success"><i class="fas fa-print"></i>  Imprimer PDF</a>
-        </div>
+        </div> --}}
       <!-- /.card -->
   </div>
   </div>
-  <script>
-    window.addEventListener("ShowConfirmMessage", event=>{
-        Swal.fire({
-            title : event.detail.message.title,
-            text: event.detail.message.text,
-            icon: event.detail.message.type,
-            showCancelButton:true,
-            confirmButtonColor:'#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText:'Continuer',
-            canceluttonText: 'Annuler'
-        }).then((result) => {
-            if(result.isConfirmed){
-                @this.deleteBooking(event.detail.message.data.booking_id)
 
-        }
-        })
-        window.addEventListener("ShowSuccessMessage", event=>{
-        Swal.fire({
-            position : 'top-end',
-            icon: 'success',
-            toast:true,
-            title:event.detail.message || 'Opération effecctuée avec succès!!',
-            showConfirmButton: false,
-            timer: 3000
-            }
-        )
-    })
-    })
-</script>
 

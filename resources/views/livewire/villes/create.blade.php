@@ -18,7 +18,6 @@
                @enderror
               </div>
 
-
               <div class="form-group">
                 <label>Pays</label>
                 <select class="form-control @error('newVilles.pays_id') is-ivalid @enderror" wire:model="newVilles.pays_id">

@@ -18,11 +18,10 @@ class Booking extends Component
 
     public function render()
     {
-
         return view('livewire.bookings.index',
         [
             "participant"=> Participant::all(),
-            "bookings" => Reservation::latest()->paginate(6),
+            "bookings" => Reservation::latest()->paginate(10),
             "images" => Image::all(),
         ])
         ->extends("layouts.master")
