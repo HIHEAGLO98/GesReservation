@@ -35,7 +35,7 @@ class Salles extends Component
     }
 
     protected $rules = [
-        'newSalles.libelle_salle' =>'required|unique:salles,libelle_salle',
+        'newSalles.libelle_salle' =>'required|min:5|max:50|unique:salles,libelle_salle',
         'newSalles.ville_id' => 'required',
     ];
 

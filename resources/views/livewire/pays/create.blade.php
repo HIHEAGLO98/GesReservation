@@ -14,7 +14,7 @@
                 <label>Pays</label>
                 <input required type="text" class="form-control @error('newPays.nom_pays') is-ivalid @enderror" wire:model="newPays.nom_pays">
                @error("newPays.nom_pays")
-                   <span class="text-danger"><p>Ce nom est déjà pris</p></span>
+                   <span class="text-danger"><p>{{ $message }}</p></span>
                @enderror
               </div>
             <!-- /.card-body -->

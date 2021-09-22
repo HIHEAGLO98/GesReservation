@@ -25,7 +25,7 @@ class Tickets extends Component
     }
 
     protected $rules = [
-        "newTicket.lib_ticket" => 'required',
+        "newTicket.lib_ticket" => 'required[min:5|max:50',
         "newTicket.mode_paiement" => 'required',
         "newTicket.evenement_id" => 'required',
         "newTicket.type_ticket_id" => 'required',

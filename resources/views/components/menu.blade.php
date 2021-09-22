@@ -185,13 +185,13 @@
             </a>
         </li>
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a href="{{ route('organisateur.evenement.rapport.index') }}"
             class="nav-link {{ setMenuActive('organisateur.evenement.rapport.index') }}">
             <i class="fas fa-chart-bar"></i>
             <p>Rapport</p>
             </a>
-        </li>
+        </li> --}}
         
     </li>
     @endcan

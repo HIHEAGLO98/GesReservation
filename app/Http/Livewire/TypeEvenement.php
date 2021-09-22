@@ -30,7 +30,7 @@ class TypeEvenement extends Component
     }
 
     protected $rules = [
-        'newTypes.libelle_type_ev' =>'required|unique:type_evenements,libelle_type_ev',
+        'newTypes.libelle_type_ev' =>'required|min:5|max:100|unique:type_evenements,libelle_type_ev',
     ];
 
     public function goToAddType()

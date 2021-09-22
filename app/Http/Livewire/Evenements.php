@@ -81,17 +81,18 @@ class Evenements extends Component
         }
 
         return [
-            'newEvenement.nom' =>'required|unique:evenements,nom|max:255',
+            'newEvenement.nom' =>'required|unique:evenements,nom|min:5|max:255',
             'newEvenement.adresse' =>'required',
-            'newEvenement.description' =>'required|max:500',
+            'newEvenement.description' =>'required|min:5|max:500',
             'newEvenement.nombre_place' =>'required|numeric',
             'newEvenement.datedebut' =>'required|date|min:now()',
-            'newEvenement.datefin' => 'required|date',
+            'newEvenement.datefin' => 'required|date|after:datedebut',
             'newEvenement.heuredebut' => 'required',
-            'newEvenement.heurefin' => 'required',
+            'newEvenement.heurefin' => 'required|after:heurefin',
             'newEvenement.salle_id' => 'required',
             'newEvenement.type_evenement_id' => 'required',
             'newEvenement.organisateur_id' => 'required',
+            'photo' => 'mimes:jpg,bmp,png'
 
         ];
     }

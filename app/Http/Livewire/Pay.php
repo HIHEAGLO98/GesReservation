@@ -46,7 +46,7 @@ class Pay extends Component
         }
 
         return [
-            'newPays.nom_pays' =>'required|unique:pays,nom_pays',
+            'newPays.nom_pays' =>'required|min:5|max:50|unique:pays,nom_pays',
         ];
     }
 

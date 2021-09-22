@@ -47,23 +47,23 @@ class Utilisateurs extends Component
         if( $this->currentPage == PAGEEDITFORM)
         {
             return [
-                'editUser.name' =>'required',
+                'editUser.name' =>'required|min:5|max:50',
                 'editUser.email' =>['required','email', Rule::unique("users", "email")->ignore($this->editUser["id"])],
-                'editUser.adresse' =>'required',
+                'editUser.adresse' =>'required|min:5|max:50',
                 'editUser.sexe' =>'required',
-                'editUser.ville' =>'required',
-                'editUser.pays' => 'required',
+                'editUser.ville' =>'required|min:5|max:50',
+                'editUser.pays' => 'required|min:5|max:50',
 
             ];
         }
 
         return [
-            'newUser.name' =>'required',
+            'newUser.name' =>'required|min:5|max:50',
             'newUser.email' =>'required|email|unique:users,email',
-            'newUser.adresse' =>'required',
+            'newUser.adresse' =>'required|min:5|max:50',
             'newUser.sexe' =>'required',
-            'newUser.ville' =>'required',
-            'newUser.pays' => 'required',
+            'newUser.ville' =>'required|min:5|max:50',
+            'newUser.pays' => 'required|min:5|max:50',
 
 
         ];

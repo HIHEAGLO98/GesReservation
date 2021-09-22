@@ -4,7 +4,7 @@
         <div class="col">
             <div class="card card-info card-outline">
                 <a href="#0" class="">
-                <img class="card-img-top" src="{{ asset('/storage/'.$image->path) }}" alt="Photo de couverture" style="height:24rem;">
+                <img class="card-img-top img-thumbnail" src="{{ asset('/storage/'.$image->path) }}" alt="Photo de couverture" style="height:24rem;">
                 </a>
                 <div class="card-body ">
                 <h4 class="card-title mb-1 text-primary"><strong>{{ $image->evenement->nom }}</strong></h4>

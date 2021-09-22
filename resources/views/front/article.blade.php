@@ -1,8 +1,7 @@
 <section class="s-content @if(currentRoute('home')) s-content--no-top-padding @endif">
 
 
-    <!-- masonry
-    ================================================== -->
+    <!-- masonry ================================================== -->
     <div class="s-bricks">
 
         <div class="masonry">
@@ -21,8 +20,8 @@
                 <article class="brick entry" data-aos="fade-up">
 
                     <div class="entry__thumb">
-                        <a href="{{ route('acceuils.index') }}" class="thumb-link" style="height:24rem;">
-                            <img src="{{ asset('/storage/'.$image->path) }}" alt="">
+                        <a href="{{ route('acceuils.index') }}" class="thumb-link " style="height:24rem;">
+                            <img class="img-thumbnail" src="{{ asset('/storage/'.$image->path) }}" alt="">
                         </a>
                     </div> <!-- end entry__thumb -->
 

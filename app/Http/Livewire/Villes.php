@@ -63,7 +63,7 @@ class Villes extends Component
 
         return [
         
-            'newVilles.nom_ville' =>'required|unique:villes,nom_ville',
+            'newVilles.nom_ville' =>'required|min:5|max:50|unique:villes,nom_ville',
             'newVilles.pays_id' => 'required',
         ];
     }

@@ -62,12 +62,12 @@ class EventOrganisateur extends Component
         if( $this->currentPage == PAGEEDITFORM)
         {
             return [
-                'editEvenement.nom' =>'required',
-                'editEvenement.adresse'=>'required',
+                'editEvenement.nom' =>'required|min:5|max:50',
+                'editEvenement.adresse'=>'required|min:5|max:50',
                 'editEvenement.description' =>'required|max:500',
                 'editEvenement.nombre_place'=>'required|numeric',
                 'editEvenement.datedebut' =>'required|date',
-                'editEvenement.datefin' =>'required',
+                'editEvenement.datefin' =>'required|after:datedebut',
                 'editEvenement.heuredebut' => 'required',
                 'editEvenement.heurefin'=>'required',
                 'editEvenement.salle_id' =>'required',
@@ -78,17 +78,18 @@ class EventOrganisateur extends Component
         }
 
         return [
-            'newEvenement.nom' =>'required|unique:evenements,nom|max:255',
-            'newEvenement.adresse' =>'required',
-            'newEvenement.description' =>'required|max:500',
+            'newEvenement.nom' =>'required|unique:evenements,nom|min:5|max:50',
+            'newEvenement.adresse' =>'required|min:5|max:50',
+            'newEvenement.description' =>'required|min:5|max:500',
             'newEvenement.nombre_place' =>'required|numeric',
             'newEvenement.datedebut' =>'required|date|min:now()',
-            'newEvenement.datefin' => 'required|date',
+            'newEvenement.datefin' => 'required|date|after:datedebut',
             'newEvenement.heuredebut' => 'required',
-            'newEvenement.heurefin' => 'required',
+            'newEvenement.heurefin' => 'required|after:heuredebut',
             'newEvenement.salle_id' => 'required',
             'newEvenement.type_evenement_id' => 'required',
             'newEvenement.organisateur_id' => 'required',
+            'photo' => 'mimes:jpg,bmp,png'
 
         ];
     }
